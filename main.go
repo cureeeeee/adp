@@ -2,16 +2,18 @@ package main
 
 import (
 	"fmt"
-	CourseRegistry "example.com/CheckingTask/courseregistry"
+	CourseRegistry "github.com/cureeeeee/adp/courseregistry"
 )
 
 func main() {
 	registry := CourseRegistry.NewRegistry()
 
-	// Initial test data
+	// Initial test data (5 students)
 	registry.AddStudent(CourseRegistry.Student{ID: 1, Name: "Alice", Courses: []string{"Go", "Databases"}})
 	registry.AddStudent(CourseRegistry.Student{ID: 2, Name: "Bob", Courses: []string{"Go"}})
 	registry.AddStudent(CourseRegistry.Student{ID: 3, Name: "Charlie", Courses: []string{}})
+	registry.AddStudent(CourseRegistry.Student{ID: 4, Name: "Diana", Courses: []string{"Python", "Go"}})
+	registry.AddStudent(CourseRegistry.Student{ID: 5, Name: "Eve", Courses: []string{"Databases", "Security"}})
 
 	for {
 		fmt.Println("\nSTUDENT COURSE REGISTRY")
