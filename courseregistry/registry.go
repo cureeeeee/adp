@@ -1,6 +1,9 @@
 package courseregistry
 
-import "errors"
+import (
+	"errors"
+	"sort"
+)
 
 type Student struct {
 	ID      uint64
@@ -76,10 +79,11 @@ func (r *Registry) RemoveCourse(studentID uint64, course string) error {
 
 // ListStudents returns all students as a slice
 func (r *Registry) ListStudents() []Student {
-	result := []Student{}
+	result := make([]Student, 0, len(r.Students))
 	for _, student := range r.Students {
 		result = append(result, student)
 	}
+	sort.Slice(result, func(i, j int) bool { return result[i].ID < result[j].ID })
 	return result
 }
 
